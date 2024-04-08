@@ -9,7 +9,7 @@ import { UsersComponent } from "./users.component";
 import { UsersRoutingModule } from "./users-routing.module";
 import { SharedModule } from "../shared/shared.module";
 import { CreateUserComponent } from "./create-user/create-user.component";
-import { LoaderModule } from "../shared/loader/loader.module";
+import { LoaderModule } from "../ui/loader/loader.module";
 
 @NgModule({
   imports: [

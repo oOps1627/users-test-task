@@ -1,7 +1,7 @@
 import { IUser } from "../models/user";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UsersService } from "../services/common/users.service";
-import { matchValidator, PasswordValidators, usernameValidator } from "./validators";
+import { matchValidator, PasswordValidators } from "./validators";
 import { inject } from "@angular/core";
 import { filter, finalize, Observable, take } from "rxjs";
 
@@ -25,9 +25,7 @@ export abstract class UserFormComponent {
       email: new FormControl<string>('', [Validators.required, Validators.email]),
       type: new FormControl<string>('', [Validators.required]),
       password: new FormControl<string>('', PasswordValidators),
-      confirmPassword: new FormControl<string>('', {
-        validators: [matchValidator('password')],
-      }),
+      confirmPassword: new FormControl<string>('', [matchValidator('password')]),
     });
   }
 

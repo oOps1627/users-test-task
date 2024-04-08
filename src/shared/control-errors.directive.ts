@@ -1,13 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnDestroy,
-  OnInit,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef
-} from "@angular/core";
+import { Directive, ElementRef, Input, OnInit, Renderer2, TemplateRef, ViewContainerRef } from "@angular/core";
 import { AbstractControl, FormControlName, FormGroupDirective } from "@angular/forms";
 
 type ErrorMessages = {[key: string]: string};

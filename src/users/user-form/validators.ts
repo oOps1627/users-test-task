@@ -1,6 +1,6 @@
 import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 import { UsersService } from "../services/common/users.service";
-import { map, Observable, take } from "rxjs";
+import { map, Observable } from "rxjs";
 
 export const PasswordValidators: ValidatorFn[] = [Validators.required, Validators.pattern(/^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/)];
 
@@ -26,7 +26,6 @@ export function matchValidator(matchTo: string, reverse?: boolean): ValidatorFn 
 export function usernameValidator(usersService: UsersService): AsyncValidatorFn {
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
     return usersService.isUsernameAvailable(control.value).pipe(
-      take(1),
       map((result: boolean) => result ? null : {usernameExist: true})
     );
   };
