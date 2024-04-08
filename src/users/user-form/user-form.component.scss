@@ -1,0 +1,102 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  box-sizing: border-box;
+
+
+  .wrapper {
+    background-color: #fff;
+    width: 500px;
+    height: auto;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 16px;
+      color: #3F4254;
+      margin: 0;
+    }
+
+    .close {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+
+      i {
+        display: block;
+        transform: rotate(45deg);
+        font-size: 36px;
+        color: #a1a1a1;
+      }
+    }
+  }
+
+  .form {
+    .control-container {
+      margin-top: 12px;
+
+      .label {
+        font-size: 13px;
+        margin-bottom: 3px;
+        color: #3F4254;
+      }
+
+      input, select {
+        width: 100%;
+        background-color: #F3F6F9;
+        border-radius: 6px;
+        border: none;
+        padding: 12px;
+        box-sizing: border-box;
+        outline: none;
+
+        &.ng-invalid.ng-dirty {
+          border: 1px solid #EF7DA0;
+        }
+      }
+
+      .error {
+        color: #EF7DA0;
+        font-size: 11px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    &__button {
+      width: 120px;
+      height: 46px;
+      border-radius: 6px;
+      border: none;
+      color: #fff;
+      background-color: #2E8FF0;
+
+      &_secondary {
+        background-color: #F44682;
+      }
+
+      &[disabled] {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+

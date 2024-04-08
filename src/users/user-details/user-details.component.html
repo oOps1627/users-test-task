@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <app-loader *ngIf="loading" class="absolute"></app-loader>
+
+  <div class="header">
+    <h3 class="title">{{user?.username}}</h3>
+
+    <button class="close" routerLink="../"><i>+</i></button>
+  </div>
+
+  <form [formGroup]="form" class="form" (submit)="save()">
+    <ng-template #errorTemplate let-error="error">
+      <div class="error">{{error}}</div>
+    </ng-template>
+
+    <div class="control-container">
+      <div class="label">Username (readonly)</div>
+      <input formControlName="username" readonly type="text">
+    </div>
+
+    <div class="control-container">
+      <div class="label">First name</div>
+      <input formControlName="firstName" type="text" controlErrors [errorTemplate]="errorTemplate">
+    </div>
+
+    <div class="control-container">
+      <div class="label">Last Name</div>
+      <input formControlName="lastName" type="text" controlErrors [errorTemplate]="errorTemplate">
+    </div>
+
+    <div class="control-container">
+      <div class="label">Email</div>
+      <input formControlName="email" type="text" controlErrors [errorTemplate]="errorTemplate">
+    </div>
+
+    <div class="control-container">
+      <div class="label">Type</div>
+
+      <select name="type" formControlName="type">
+        <option [value]="UserType.Admin">Admin</option>
+        <option [value]="UserType.Driver">Drive</option>
+      </select>
+    </div>
+
+    <div class="control-container">
+      <div class="label">Password</div>
+      <input formControlName="password" type="password" controlErrors [errorTemplate]="errorTemplate">
+    </div>
+
+    <div class="control-container">
+      <div class="label">Repeat Password</div>
+      <input formControlName="confirmPassword" type="password" controlErrors [errorTemplate]="errorTemplate">
+    </div>
+
+    <div class="actions">
+      <button class="actions__button actions__button_secondary"
+              (click)="deleteUser()"
+              [disabled]="loading">Delete</button>
+
+      <button class="actions__button"
+              type="submit"
+              [disabled]="form.invalid || loading">Save</button>
+    </div>
+  </form>
+
+</div>

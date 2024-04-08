@@ -1,0 +1,26 @@
+<button class="create-user-button" routerLink="create-user">Create User</button>
+
+<div class="table-wrapper">
+  <app-loader *ngIf="loading" class="absolute"></app-loader>
+
+  <table class="table">
+    <tr class="row">
+      <th class="cell cell_header">Username</th>
+      <th class="cell cell_header">First name</th>
+      <th class="cell cell_header">Last name</th>
+      <th class="cell cell_header">Email</th>
+      <th class="cell cell_header">Type</th>
+    </tr>
+
+    <ng-container *ngFor="let user of (users$ | async)">
+      <tr  class="row" [routerLink]="user.username">
+        <td class="cell">{{user.username}}</td>
+        <td class="cell">{{user.firstName}}</td>
+        <td class="cell">{{user.lastName}}</td>
+        <td class="cell">{{user.email}}</td>
+        <td class="cell">{{user.type}}</td>
+      </tr>
+    </ng-container>
+
+  </table>
+</div>
